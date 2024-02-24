@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css5.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav style="margin: 0%;">
+        <ul>
+            <li><a href="PocetnaStrana5.html" target="_blank">Početna</a></li>
+            <li><a href="Sara5.html" target="_blank">Slikarstvo</a></li>
+            <li><a href="Miljana5.html" target="_blank">Skulpture</a></li>
+            <li><a href="JS5.html" target="_blank">Kviz</a></li>
+
+        </ul>
+    </nav>
+    <br><br><br><br>
+
+
+    <p class="jsp"> Ukoliko ste pažljivo čitali i pratili našu stranicu i njen sadržaj, evo malog kviza da proverite vaše znanje!</p>
+
+    
+        <div id="quiz" class="ZaPitanja"></div> <!--sadrzi pitanja-->
+        <button class="dugmeKviz tekstDugme" id="submit">Rezultat</button> <!--dugme za rezultate-->
+        <div class="rezultat" id="results"></div>  <!--sadrzi rezultate-->
+        
+    
+
+    
+
+
+
+    <script>
+      /*varijabla za strukturu pitanja, odgovora i tacnog odgovora*/
+        var myQuestions = [
+            {
+                question: "1. U Luvru se čuva:",
+                answers: {
+                    a: '50.000 dela',
+                    b: '38.000 dela',
+                    c: '21.000 dela'
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "2. Sloboda vodi narod je delo:",
+                answers: {
+                    a: 'Paolo Veronese',
+                    b: 'Teodor Žeriko',
+                    c: 'Ežen Delakro'
+                },
+                correctAnswer: 'c'
+            },
+            {
+                question: "3. Mona Liza pripada epohi:",
+                answers: {
+                    a: 'Romantizma',
+                    b: 'Baroka',
+                    c: 'Renesanse'
+                },
+                correctAnswer: 'c'
+            },
+            {
+                question: "4. Boginja Nika iz dela Nika sa Samotrake je boginja:",
+                answers: {
+                    a: 'Rata',
+                    b: 'Pobede',
+                    c: 'Plodnosti'
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "5. Ko je vajar koji je napravio delo Psiha i Kupidon:",
+                answers: {
+                    a: 'Antonio Kanova',
+                    b: 'Donatelo',
+                    c: 'Mikelanđelo'
+
+
+                },
+                correctAnswer: 'a'
+            },
+            {
+                question: "6. Na slici Sloboda vodi narod vidi se zastava:",
+                answers: {
+                    a: 'Italije',
+                    b: 'Francuske',
+                    c: 'Španije',
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "7. Statua Pisar iz Sakare nađena je u:",
+                answers: {
+                    a: 'Egiptu',
+                    b: 'Grčkoj',
+                    c: 'Španiji'
+                },
+                correctAnswer: 'a'
+            },
+
+         ];
+
+             /* imamo funkciju koja prikazuje sva pitanja i odgovore i pokazuje rezultat kviza*/
+ 
+         function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+
+
+            /*podfunkcija koja prikazuje pitanja i odgovore koje smo gore naveli*/
+            function showQuestions(questions, quizContainer) {
+                /* output je niz koji sadrzi pitanja i odgovore a answers niz koji cuva odgovore*/
+                var output = [];
+                var answers;
+
+                /* prolazimo kroz svako pitanje */
+                for (var i = 0; i < questions.length; i++) {
+
+                    /*resetujemo niz da bude prazan*/
+                    answers = [];
+
+                    /*za svako slovo (ponudjen odgovor) dodajemo radio button i stavljamo da je ime= questions + broj pitanja, a value slovo , i ispisujemo slovo i odgovor 
+                    vezan za to slovo*/
+                    for (letter in questions[i].answers) {
+                        answers.push(
+                            '<label>'
+                            + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+                            + letter + ': '
+                            + questions[i].answers[letter]
+                            + '</label>'
+                        );
+                    }
+
+                    /* u niz output dodajemo pitanje i pridruzujemo sve odgovore vezane za to pitanje */
+                    output.push(
+                        '<div class="question">' + questions[i].question + '</div>'
+                        + '<div class="answers">' + answers.join('') + '</div>'
+                    );
+                }
+
+                /* u var quizContainer  pridruzujemo sva pitanja i njihove ponudjene odgovore iz outputa*/
+                quizContainer.innerHTML = output.join('');
+            }
+
+            /* funkcija za dobijanje rezultata*/
+
+            function showResults(questions, quizContainer, resultsContainer) {
+
+                /* answerContainers uzima sve odgovore od ponudjenih pitanja*/
+                var answerContainers = quizContainer.querySelectorAll('.answers');
+
+                /*userAnswer ce nalaziti i cuvati oznacen odgovor, a numCorrect broji tacne odgovore i on se postavljen na nulu*/
+                var userAnswer = '';
+                var numCorrect = 0;
+
+                /*opet prolazimo kroz svako pitanje preko indeksa i */
+                for (var i = 0; i < questions.length; i++) {
+
+                    /*trazimo oznacen odgovor tako sto prolazimo kroz sve ponudjene odgovore i trazimo ono koje je checked(oznaceno) i uzimamo njegovo slovo  */
+                    userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
+
+                    /* ako je odgovor tacan, brojac tacnih se uvecava za jedan i boji odgovore u zeleno */
+                    if (userAnswer === questions[i].correctAnswer) {
+                        numCorrect++;
+                        answerContainers[i].style.color = 'lightgreen';
+                    }
+                    /*ako je netacno ili prazno boji u crveno*/
+                    else {
+                        answerContainers[i].style.color = 'red';
+                    }
+                }
+
+                /*u resultsContainer prikazujemo koliko ima tacnih od ukupnog broja pitanja*/
+                resultsContainer.innerHTML =  numCorrect + ' od ' + questions.length + ' tačnih odgovora';
+            }
+
+            /*pozivamo funkciju za prikaz pitanja i odgovora*/
+            showQuestions(questions, quizContainer);
+
+            /* kada osoba klikne dugme za rezultate pozvace se ta funkcija*/
+            submitButton.onclick = function () {
+                showResults(questions, quizContainer, resultsContainer);
+            }
+        }
+
+        /*deklarisemo promenljive koje ce uzimaju html elemente sa odredjenim id-om */
+        var quizContainer = document.getElementById('quiz');
+        var resultsContainer = document.getElementById('results');
+        var submitButton = document.querySelector('.dugmeKviz');
+
+
+        /*pozivamo funkciju koja generise ceo kviz*/
+        generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+    </script>
+
+</body>
+
+</html>

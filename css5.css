@@ -1,0 +1,313 @@
+body {
+    color: white;
+    background-color: rgb(45, 45, 45);
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.hrZL {
+    border: 1px solid rgb(196, 163, 54);
+
+    box-shadow: 0 0 10px 2px rgb(212, 175, 55);
+    animation: glow-animation;
+}
+
+.hrBL {
+
+    border: 1px solid rgb(255, 255, 255);
+
+    box-shadow: 0 0 10px 2px rgb(205, 203, 194);
+    animation: glow-animation;
+}
+
+
+/*SARA (i delimicno Miljana)*/
+.Simg {
+    border: 5px solid rgb(212, 175, 55);
+    border-style: double;
+}
+
+.Sh3 {
+    font-style: italic;
+    font-size: 25px;
+    color: rgb(212, 175, 55);
+}
+
+.Mh3 {
+    font-style: italic;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+
+}
+
+.uvodnipasus {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 50px 50px 50px;
+}
+
+span {
+    font-style: italic;
+}
+
+.tekst-slika {
+    display: flex;
+    align-items: center;
+}
+
+.tekst {
+    max-width: 400px;
+    margin: 100px;
+    font-size: 18px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.VelikiNaslovS {
+    padding-top: 70px;
+    text-align: center;
+    color: rgb(212, 175, 55);
+}
+
+.VelikiNaslovM {
+    padding-top: 70px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+
+
+div.galerija img {
+    height: 350px;
+    width: 350px;
+}
+
+.galerijaSlika {
+    width: 350px;
+    height: 250px;
+    display: inline-block;
+}
+
+
+.galerija {
+    width: 99%;
+    height: 400px;
+    overflow: scroll;
+    white-space: nowrap;
+    margin: 15px 10px 10px 10px;
+}
+
+.tekstlista {
+    font-size: 18px;
+    margin: 20px 10px 10px 20px;
+}
+
+.liGal {
+    list-style: square;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(212, 175, 55);
+}
+
+nav ul {
+    background-color: rgb(52, 52, 52);
+    list-style: none;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    display: block;
+    padding: 15px 20px;
+    color: rgb(212, 175, 55);
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #847f7f;
+}
+
+/*-----ovo je za pocetnu-----*/
+.h5 {
+    font-size: 20px;
+    color: rgb(212, 175, 55);
+
+}
+
+.h3 {
+    color: rgb(212, 175, 55);
+    font-family: 'GFS Didot', serif;
+
+}
+
+form {
+    height: 470px;
+    width: 470px;
+    border: 4px solidrgb(199, 164, 51);
+    font-size: 18px;
+    padding: 30px;
+    border-radius:15px;
+    background-color: rgb(199, 164, 51);
+    box-shadow: 2px 5px 5px rgba(162, 122, 22, 4);
+    background: linear-gradient(to bottom right, rgb(235, 204, 101), rgb(149, 119, 19));
+}
+
+form label {
+    font-weight: bold;
+    color: rgb(135, 110, 27);
+    
+}
+
+.inputForma {
+    display: block;
+    margin-bottom: 30px;
+   
+}
+
+.dugme {
+
+    margin: 15px;
+    height: 27px;
+    width: 75px;
+    text-align: center;
+    background-color: rgb(223, 192, 88);
+    border-radius:15px;
+    margin: 15px 5px 5px 5px;
+    border-color: rgb(165, 134, 32);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(196, 163, 54);
+}
+
+/*MILJANA */
+
+.slide-container {
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+div.slide-container img {
+    width: 700px;
+    height: 425px;
+}
+
+.pocetak {
+    padding: 50px;
+    background-image: url(https://api-www.louvre.fr/sites/default/files/2020-12/galerie-d-apollon.png);
+    text-shadow: 4px 4px 4px rgb(45, 45, 45), -4px -4px 4px rgb(45, 45, 45), 4px -4px 4px rgb(45, 45, 45), -4px 4px 4px rgb(45, 45, 45);
+}
+
+
+.t {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.mapa {
+
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.uvod {
+    text-align: center;
+}
+
+.tekst-slika {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+}
+
+.tekst {
+    max-width: 400px;
+    margin: 100px;
+}
+
+.slika {
+    width: 300px;
+    height: 450px;
+    border: double 10px rgb(255, 255, 255);
+
+}
+
+td {
+    text-align: left;
+    width: 100px;
+}
+
+/*---js css--*/
+
+.question {
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+.answers {
+    margin-bottom: 40px;
+    margin-left: 50px;
+}
+
+.ZaPitanja {
+    max-width: 1400px;
+    border-top: 50px;
+    border: 1px solid rgb(196, 163, 54);
+    box-shadow: 0 0 10px 2px rgb(212, 175, 55);
+    animation: glow-animation;
+    margin: 100px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding-top: 90px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    padding-right: 50px;
+}
+
+.dugmeKviz {
+
+    height: 57px;
+    width: 125px;
+    text-align: center;
+    background-color: rgb(223, 192, 88);
+    border-radius: 10px;
+    margin: 0px 5px 25px 700px;
+    border-color: rgb(165, 134, 32);
+
+
+}
+
+.tekstDugme {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(149, 119, 19);
+
+
+}
+
+.rezultat{
+    font-size: 26px;
+    color: rgb(212, 175, 55);
+    text-align: center;
+    padding-bottom: 40px;
+    font-weight: bold;
+}
+
+.jsp{
+text-align: center;
+font-size: 25px;
+color: rgb(212, 175, 55);
+font-weight: bold;
+}
+
